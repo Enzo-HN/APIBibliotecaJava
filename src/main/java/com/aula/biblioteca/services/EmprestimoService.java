@@ -48,8 +48,13 @@ public class EmprestimoService {
             throw new IllegalArgumentException("Informe livro.id e usuario.id");
         }
 
-        Livro livro = livroRepo.findById(pedido.getLivro().getId())
-                .orElseThrow();
+        Livro livro = livroRepo.findById(
+                pedido.getLivro().getId()
+        ).orElseThrow(() ->
+                new IllegalArgumentException(
+                        "Livro não encontrado"
+                )
+        );
         Usuario usuario = usuarioRepo.findById(pedido.getUsuario().getId())
                 .orElseThrow();
 

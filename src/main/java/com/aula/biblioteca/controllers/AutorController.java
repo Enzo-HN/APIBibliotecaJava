@@ -4,13 +4,12 @@ import com.aula.biblioteca.entities.Autor;
 import com.aula.biblioteca.services.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/autor")
 public class AutorController {
-
+    
     @Autowired
     private AutorService autorService;
 

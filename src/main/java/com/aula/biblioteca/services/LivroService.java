@@ -5,7 +5,9 @@ import com.aula.biblioteca.entities.Livro;
 import com.aula.biblioteca.repositories.IJpaAutorRepo;
 import com.aula.biblioteca.repositories.IJpaLivroRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -24,7 +26,8 @@ public class LivroService {
 
     public Livro getById(Long id) {
         return livroRepo.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Livro não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Livro não encontrado"));
     }
 
     public Livro addLivro(Livro livro) {
