@@ -1,32 +1,13 @@
 # API Biblioteca
 
-API REST desenvolvida em Java com Spring Boot para gerenciar autores, livros, usuários e empréstimos. O projeto utiliza H2, JPA, Lombok e padrões de projeto.
+API REST desenvolvida em Java com Spring Boot para gerenciar autores, livros, usuários e empréstimos.
 
 ## Como executar
 
 1. Tenha o **Java 21** instalado.
 2. Abra o projeto em uma IDE ou pelo terminal.
-3. Execute a classe `BibliotecaApplication` ou use o Maven Wrapper:
-
-   **Windows:**
-   ```bash
-   .\mvnw.cmd spring-boot:run
-   ```
-
-   **Linux/macOS:**
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-
+3. Execute a classe `BibliotecaApplication`:
 4. Acesse a API em `http://localhost:8080` e faça os testes pelo Postman.
-
-O projeto usa o banco **H2 em memória**. Para acessar o console, utilize `http://localhost:8080/h2-console`, com:
-
-- **JDBC URL:** `jdbc:h2:mem:bibliotecadb`
-- **Usuário:** `sa`
-- **Senha:** em branco
-
-Como o banco é em memória, os dados são perdidos quando a aplicação é encerrada.
 
 ## Configuração do Adapter de CEP
 
@@ -47,8 +28,6 @@ cep.provedor=viacep
 ```http
 GET http://localhost:8080/cep/85301000
 ```
-
-O cadastro de usuários também usa a consulta de CEP para preencher o endereço. É necessário ter conexão com a internet para consultar os serviços externos.
 
 ## Padrões de projeto utilizados
 
