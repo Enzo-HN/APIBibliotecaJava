@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -31,4 +32,19 @@ public class Emprestimo {
     private LocalDate dataPrevistaDevolucao;
 
     private LocalDate dataDevolucao;
+
+
+    private String tipoMulta = "PADRAO";
+    private BigDecimal multa = BigDecimal.ZERO;
+    @Transient
+    public String getSituacao() {
+        if (dataDevolucao != null) {
+            return "DEVOLVIDO";
+        }
+        if (dataPrevistaDevolucao != null
+                && LocalDate.now().isAfter(dataPrevistaDevolucao)) {
+            return "ATRASADO";
+        }
+        return "ATIVO";
+    }
 }
