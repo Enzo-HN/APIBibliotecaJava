@@ -8,6 +8,7 @@ API REST desenvolvida em Java com Spring Boot para gerenciar autores, livros, us
 2. Abra o projeto em uma IDE ou pelo terminal.
 3. Execute a classe `BibliotecaApplication`:
 4. Acesse a API em `http://localhost:8080` e faça os testes pelo Postman.
+5. Acesse o banco de dados H2 em `http://localhost:8080/h2-console`
 
 ## Configuração do Adapter de CEP
 
